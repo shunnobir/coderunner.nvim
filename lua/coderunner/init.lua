@@ -38,7 +38,6 @@ M.run = function ()
     -- create a temporary window and then open the terminal in that buffer
     local height = math.ceil(vim.fn.winheight(0))
     local width  = math.ceil(vim.fn.winwidth(0))
-    vim.print(height, width, type(height), type(width), vim.fn.type(height))
     local fname  = vim.fn.expand("%:t")
     local buf    = vim.api.nvim_create_buf(true, false)
     vim.api.nvim_open_win(buf, true, {
@@ -53,7 +52,7 @@ M.run = function ()
 
     cmd = cmd .. " " .. fname
 
-    if executable then
+    if executable ~= nil and executable ~= "" then
         cmd = cmd .. "; ./" .. executable .. "; rm " .. executable
     end
     vim.fn.termopen(cmd)
