@@ -38,7 +38,7 @@ M.run = function ()
     -- create a temporary window and then open the terminal in that buffer
     local height = math.ceil(vim.fn.winheight(0))
     local width  = math.ceil(vim.fn.winwidth(0))
-    local fname  = vim.fn.expand("%:t")
+    local fname  = vim.fn.expand("%")
     local buf    = vim.api.nvim_create_buf(true, false)
     vim.api.nvim_open_win(buf, true, {
         style = "minimal",
